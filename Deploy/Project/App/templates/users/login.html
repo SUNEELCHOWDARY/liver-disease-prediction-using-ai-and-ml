@@ -1,0 +1,432 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+    html {
+        background-image: url(https://www.pixelstalk.net/wp-content/uploads/images6/Light-Blue-Backgrounds-Free-Download.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #e9ecef;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: rgba(255, 255, 255, 255);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 450px;
+        width: 100%;
+    }
+
+    h1 {
+        font-family: 'Times New Roman', Times, serif;
+        color: #007bff;
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #login_form {
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h2 {
+        font-family: 'Times New Roman', Times, serif;
+
+        color: #495057;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 90%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #495057;
+        transition: all 0.3s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    ::placeholder {
+        color: #adb5bd;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        color: #ffffff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        cursor: pointer;
+    }
+
+    .form-group label {
+        color: #495057;
+        font-size: 16px;
+    }
+
+    .small {
+        color: #007bff;
+        font-size: 14px;
+    }
+
+    .card-footer {
+        margin-top: 15px;
+    }
+    .label{
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+    .alert {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        border-radius: 5px;
+    }
+
+    .alert .close {
+        color: #721c24;
+        opacity: 1;
+    }
+
+    .close {
+        padding-left: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div id="login_form">
+        <h1> Login</h1>
+        <div class="card-body">
+            {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                    <strong>{{ value }}</strong>
+                    {% endfor %}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label style="font-family: 'Times New Roman', Times, serif;">Username</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label style="font-family: 'Times New Roman', Times, serif;">Password</label>
+                    {{ form.password }}
+                </div>
+                <div class="form-group">
+                    {{ form.remember_me }}
+                    <label style="font-family: 'Times New Roman', Times, serif;">Remember me</label>
+                </div>
+                <button name="login" id="login" style="font-family: 'Times New Roman', Times, serif;">Sign in</button>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <div class="small">
+                <a href="{% url 'users-register' %}" style="color: #007bff;font-family: 'Times New Roman', Times, serif;" >Don't have an account yet? Go to signup</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Example</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Nunito", sans-serif;
+      color: rgba(0, 0, 0, 0.7);
+      margin: 0;
+    }
+    .container {
+      height: 200vh;
+      background-image: url(https://images.unsplash.com/photo-1538137524007-21e48fa42f3f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac9fa0975bd2ebad7afd906c5a3a15ab&auto=format&fit=crop&w=1834&q=80);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .modal {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(51, 51, 51, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.4s;
+    }
+    .modal-container {
+      display: flex;
+      max-width: 720px;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transition-duration: 0.3s;
+      background: #fff;
+      transform: translateY(100px) scale(0.4);
+      margin: 0 auto;
+    }
+    .modal-title {
+      font-size: 26px;
+      margin: 0;
+      font-weight: 400;
+      color: #55311c;
+    }
+    .modal-desc {
+      margin: 6px 0 30px 0;
+    }
+    .modal-left {
+      padding: 60px 30px 20px;
+      background: #fff;
+      flex: 1.5;
+      transition-duration: 0.5s;
+      transform: translateY(80px);
+      opacity: 0;
+    }
+    .modal-button {
+      color: #7d695e;
+      font-family: "Nunito", sans-serif;
+      font-size: 18px;
+      cursor: pointer;
+      border: 0;
+      outline: 0;
+      padding: 10px 40px;
+      border-radius: 30px;
+      background: white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.16);
+      transition: 0.3s;
+    }
+    .modal-button:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .modal-right {
+      flex: 2;
+      font-size: 0;
+      transition: 0.3s;
+      overflow: hidden;
+    }
+    .modal-right img {
+      width: 100%;
+      height: 100%;
+      transform: scale(2);
+      object-fit: cover;
+      transition-duration: 1.2s;
+    }
+    .modal.is-open {
+      height: 100%;
+      background: rgba(51, 51, 51, 0.85);
+    }
+    .modal.is-open .modal-button {
+      opacity: 0;
+    }
+    .modal.is-open .modal-container {
+      opacity: 1;
+      transition-duration: 0.6s;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .modal.is-open .modal-right img {
+      transform: scale(1);
+    }
+    .modal.is-open .modal-left {
+      transform: translateY(0);
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-buttons a {
+      color: rgba(51, 51, 51, 0.6);
+      font-size: 14px;
+    }
+    .sign-up {
+      margin: 60px 0 0;
+      font-size: 14px;
+      text-align: center;
+    }
+    .sign-up a {
+      color: #8c7569;
+    }
+    .input-button {
+      padding: 8px 12px;
+      outline: none;
+      border: 0;
+      color: #fff;
+      border-radius: 4px;
+      background: #8c7569;
+      font-family: "Nunito", sans-serif;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .input-button:hover {
+      background: #55311c;
+    }
+    .input-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-family: "Nunito", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      color: #8c7569;
+      transition: 0.3s;
+    }
+    .input-block {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 10px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+    .input-block input {
+      outline: 0;
+      border: 0;
+      padding: 4px 0 0;
+      font-size: 14px;
+      font-family: "Nunito", sans-serif;
+    }
+    .input-block input::placeholder {
+      color: #ccc;
+      opacity: 1;
+    }
+    .input-block:focus-within {
+      border-color: #8c7569;
+    }
+    .input-block:focus-within .input-label {
+      color: rgba(140, 117, 105, 0.8);
+    }
+    .icon-button {
+      outline: 0;
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      background: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+    .scroll-down {
+      display: none;
+    }
+    @media (max-width: 750px) {
+      .modal-container {
+        width: 90%;
+      }
+      .modal-right {
+        display: none;
+        margin-right: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+  <div class="modal">
+    <div class="modal-container">
+      <div class="modal-left">
+        <h1 class="modal-title">Welcome back!</h1>
+        {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <form method="POST">
+          {% csrf_token %}
+          <label for="username" class="input-label">Username</label>
+
+          <div class="input-block">
+            {{ form.username }}
+          </div>
+          <label for="password" class="input-label">Password</label>
+
+          <div class="input-block">
+            {{ form.password }}
+          </div>
+          <button type="submit" class="input-button">Submit</button>
+        </form>
+        
+        <div class="sign-up">Not a member? <a href="{% url 'users-register' %}">Sign up</a></div>
+      </div>
+      <div class="modal-right">
+        <img src="https://t3.ftcdn.net/jpg/06/22/43/38/360_F_622433875_yDo9C904QNmDKVXQVpX2kb6JYZS3LSoR.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <script>
+    // Automatically open the modal when the page loads
+    window.onload = function() {
+      document.querySelector('.modal').classList.add('is-open');
+    };
+  </script>
+</body>
+</html>

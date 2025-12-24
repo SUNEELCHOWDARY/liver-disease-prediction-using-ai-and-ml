@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ predict | upper }} Prediction</title>
+   
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #9dc3d4;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    .top {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+       
+    }
+    .card-content {
+        padding: 20px;
+        text-align: center;
+    }
+    .card-content img {
+        max-width: 100%;
+        height: 250px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .card-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+    .section-title {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #007bff;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        border: 1px solid #16e9aa;
+        background-color:#b0bec5;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #dee2e6;
+    }
+    th {
+        background-color: #f0bc6e;
+        color: #495057;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #cfd8dc;
+    }
+    .content {
+        text-align: left;
+        padding: 0 20px;
+    }
+    .content p {
+        margin-bottom: 15px;
+    }
+    .content .image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
+    }
+    a.top {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #053777;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 20px 0;
+        }
+
+        a.top:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+</style>
+<body>
+    <a href="/" class="top">Back to Home</a>
+
+    <div class="container mt-4">
+        <center>
+        <div class="card">
+            <div class="card-content">
+                <img src="{{ obj.image.url }}" alt="Input Image" class="mb-4">
+                <p class="card-title">{{ predicted | upper }}</p>
+            </div>
+        </div>
+    </center>
+
+        {% if obj %}
+            {% if predict == 'Cirrhosis' %}
+            <div class="section-title">Cirrhosis Overview</div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Description</strong></td>
+                        <td>Cirrhosis is a chronic liver disease characterized by the replacement of healthy liver tissue with scar tissue. This impairs the liver's ability to function properly.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Symptoms</strong></td>
+                        <td>Fatigue, weakness, loss of appetite, nausea, vomiting, jaundice, abdominal swelling, itchy skin, and easy bruising.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Causes</strong></td>
+                        <td>Chronic alcohol consumption, hepatitis B and C infections, nonalcoholic fatty liver disease (NAFLD), autoimmune hepatitis, and genetic disorders.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prevention</strong></td>
+                        <td>Avoiding excessive alcohol intake, maintaining a healthy weight, vaccination against hepatitis B, and managing conditions that affect the liver.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precautions</strong></td>
+                        <td>Regular medical check-ups, avoiding liver-damaging substances, adhering to prescribed treatments, and monitoring liver function.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment</strong></td>
+                        <td>Management focuses on addressing the underlying cause, medications to control symptoms, lifestyle changes, and in severe cases, liver transplantation.</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Time of Day</strong></th>
+                        <th><strong>Recommendations</strong></th>
+                    </tr>
+                    <tr>
+                        <td><strong>Morning:</strong></td>
+                        <td>Start with a glass of warm water with lemon.<br> Have a balanced breakfast including whole grains and fruits.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Afternoon:</strong></td>
+                        <td>Engage in light physical activities such as walking.<br> Consume a nutritious lunch with lean proteins and vegetables.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Night:</strong></td>
+                        <td>Eat a light dinner.<br> Practice relaxation techniques such as yoga or meditation.<br> Ensure adequate sleep.</td>
+                    </tr>
+                    <tr>
+                        <th><strong>Additional Recommendations</strong></th>
+                        <th><strong>Category</strong><br> <strong>Recommendations</strong></th>
+                    </tr>
+                    <tr>
+                        <td><strong>Physical Activity:</strong></td>
+                        <td>Regular moderate exercise like walking or cycling is recommended.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yoga:</strong></td>
+                        <td>Gentle yoga poses such as Cat-Cow stretch or Child's Pose can improve liver function and reduce stress.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamins:</strong></td>
+                        <td>Consider vitamin supplements like B-complex and antioxidants, but consult with a healthcare provider.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fruits:</strong></td>
+                        <td>Include fruits such as apples, berries, and citrus fruits in your diet.</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% elif predict == 'Normal' %}
+            <div class="section-title">Normal</div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details / Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Description</td>
+                        <td>The result indicates a healthy condition with no abnormal findings. Continue maintaining a balanced lifestyle and regular health check-ups.</td>
+                    </tr>
+                    <tr>
+                        <td>Morning</td>
+                        <td>Enjoy a nutritious breakfast with fruits and whole grains.</td>
+                    </tr>
+                    <tr>
+                        <td>Afternoon</td>
+                        <td>Stay active with regular exercise. Have a balanced lunch with proteins and vegetables.</td>
+                    </tr>
+                    <tr>
+                        <td>Night</td>
+                        <td>Have a light dinner and ensure a good night’s sleep. Practice relaxation techniques if needed.</td>
+                    </tr>
+                    <tr>
+                        <td>Physical Activity</td>
+                        <td>Continue with regular exercise like jogging, swimming, or cycling.</td>
+                    </tr>
+                    <tr>
+                        <td>Yoga</td>
+                        <td>Maintain a regular yoga practice for overall wellness.</td>
+                    </tr>
+                    <tr>
+                        <td>Vitamins</td>
+                        <td>Ensure a balanced diet that includes necessary vitamins and minerals.</td>
+                    </tr>
+                    <tr>
+                        <td>Fruits</td>
+                        <td>Keep enjoying a variety of fruits to maintain good health.</td>
+                    </tr>
+                </tbody>
+            </table>           
+                
+            {% elif predict == 'Numerous septa without cirrhosis' %}
+            <div class="section-title">Numerous Septa without Cirrhosis</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Description</strong></td>
+                        <td>This condition indicates the presence of numerous septa (fibrous bands) in the liver without the extensive scarring associated with cirrhosis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Symptoms</strong></td>
+                        <td>May not present any specific symptoms; regular monitoring is necessary.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Causes</strong></td>
+                        <td>May be associated with liver fibrosis or ongoing liver inflammation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prevention</strong></td>
+                        <td>Managing underlying liver conditions and avoiding risk factors such as alcohol and certain medications.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precautions</strong></td>
+                        <td>Regular check-ups with a healthcare provider to monitor liver health and prevent progression.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment</strong></td>
+                        <td>Focus on addressing the underlying cause and managing liver health through lifestyle changes and medications.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Health and Lifestyle Recommendations</strong></td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Time of Day</th>
+                                        <th>Recommendation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Morning</strong></td>
+                                        <td>Start your day with a nutritious breakfast. Include whole grains and fruits in your diet.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Afternoon</strong></td>
+                                        <td>Incorporate physical activity such as light exercise or walking into your routine. Maintain a balanced lunch.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Night</strong></td>
+                                        <td>Keep your dinner light and practice stress-relief techniques before bedtime.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Physical Activity</strong></td>
+                                        <td>Engage in moderate exercise regularly to support overall liver health.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Yoga</strong></td>
+                                        <td>Gentle yoga exercises can aid in reducing stress and promoting liver health.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Vitamins</strong></td>
+                                        <td>Ensure you are getting essential vitamins through a balanced diet or supplements if necessary.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fruits</strong></td>
+                                        <td>Incorporate a variety of fruits such as apples, oranges, and bananas into your diet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            {% elif predict == 'Portal fibrosis with rare septa' %}
+            <div class="section-title">Portal Fibrosis with Rare Septa</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Description</td>
+                        <td>Portal fibrosis with rare septa indicates liver fibrosis primarily affecting the portal areas with limited fibrous bands.</td>
+                    </tr>
+                    <tr>
+                        <td>Symptoms</td>
+                        <td>Symptoms may vary, but regular monitoring is essential.</td>
+                    </tr>
+                    <tr>
+                        <td>Causes</td>
+                        <td>Often associated with chronic liver inflammation or portal hypertension.</td>
+                    </tr>
+                    <tr>
+                        <td>Prevention</td>
+                        <td>Avoiding risk factors such as alcohol and managing chronic liver diseases.</td>
+                    </tr>
+                    <tr>
+                        <td>Precautions</td>
+                        <td>Regular liver function tests and consultations with a healthcare provider.</td>
+                    </tr>
+                    <tr>
+                        <td>Treatment</td>
+                        <td>Treatment focuses on managing liver health and preventing progression of fibrosis.</td>
+                    </tr>
+                    <tr>
+                        <td>Health and Lifestyle Recommendations</td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Time/Activity</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Morning:</strong></td>
+                                        <td>Begin with a healthy breakfast and include fiber-rich foods.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Afternoon:</strong></td>
+                                        <td>Maintain a balanced diet and include physical activities like walking.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Night:</strong></td>
+                                        <td>Eat a light dinner and practice relaxation techniques for better sleep.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Physical Activity:</strong></td>
+                                        <td>Engage in regular moderate exercise to support liver health.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Yoga:</strong></td>
+                                        <td>Incorporate gentle yoga practices to help with stress management.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Vitamins:</strong></td>
+                                        <td>Ensure a balanced intake of vitamins and minerals through diet or supplements.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fruits:</strong></td>
+                                        <td>Continue consuming a variety of fruits for overall health.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            {% elif predict == 'Portal fibrosis without septa' %}
+            <div class="section-title">Portal Fibrosis and Health Recommendations</div>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Portal Fibrosis without Septa -->
+                    <tr>
+                        <td><strong>Description</strong></td>
+                        <td>Portal fibrosis without septa refers to fibrosis in the portal areas of the liver without the formation of fibrous bands.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Symptoms</strong></td>
+                        <td>Typically asymptomatic; regular monitoring is crucial to detect any progression.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Causes</strong></td>
+                        <td>Associated with chronic liver inflammation, portal hypertension, or liver diseases.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prevention</strong></td>
+                        <td>Manage underlying liver conditions and avoid alcohol and liver-damaging substances.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precautions</strong></td>
+                        <td>Regular liver function tests and consultations with healthcare providers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment</strong></td>
+                        <td>Focus on managing liver health and addressing any underlying causes of fibrosis.</td>
+                    </tr>
+                    <!-- Health and Lifestyle Recommendations -->
+                    <tr>
+                        <td><strong>Time of Day/Category</strong></td>
+                        <td><strong>Recommendation</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Morning</strong></td>
+                        <td>Start with a healthy breakfast rich in fiber and vitamins.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Afternoon</strong></td>
+                        <td>Maintain a balanced diet and include physical activities.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Night</strong></td>
+                        <td>Have a light dinner and ensure good sleep quality.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Physical Activity</strong></td>
+                        <td>Engage in regular exercise to support liver health.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yoga</strong></td>
+                        <td>Gentle yoga poses can help with relaxation and overall well-being.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vitamins</strong></td>
+                        <td>Include essential vitamins in your diet or supplements if needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fruits</strong></td>
+                        <td>Eat a variety of fruits to support overall health.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

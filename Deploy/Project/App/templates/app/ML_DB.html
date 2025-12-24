@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessments</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #4b9df0;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: calc(33% - 20px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .card h5 {
+            font-size: 18px;
+            color: #333333;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666666;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        a.top {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #053777;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.top:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+    </style>
+</head>
+<body>
+    <a href="/" class="top">Back to Home</a>
+
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: orangered;">Health Records </h2>
+        <div class="card-container">
+            {% for assessment in predictions %}
+                <div class="card">
+                    <div class="card-header">
+                        Health Assessment ID: {{ assessment.id }}
+                    </div>
+                    <div class="card-body">
+                        <h5>Age: {{ assessment.age }}</h5>
+                        <p><strong>Gender:</strong> {{ assessment.get_gender_display }}</p>
+                        <p><strong>ALB Level:</strong> {{ assessment.ALB_Level }}</p>
+                        <p><strong>ALP Level:</strong> {{ assessment.ALP_Level }}</p>
+                        <p><strong>ALT Level:</strong> {{ assessment.ALT_Level }}</p>
+                        <p><strong>AST Level:</strong> {{ assessment.AST_Level }}</p>
+                        <p><strong>Liver Fibrosis Score:</strong> {{ assessment.Liver_Fibrosis_Score }}</p>
+                        <p><strong>Bilirubin Level:</strong> {{ assessment.Bilirubin_Level }}</p>
+                        <p><strong>CHOL:</strong> {{ assessment.CHOL }}</p>
+                        <p><strong>CREA:</strong> {{ assessment.CREA }}</p>
+                        <p><strong>Alcohol Consumption:</strong> {{ assessment.Alcohol_Consumption }}</p>
+                        <p><strong>Diabetes:</strong> {{ assessment.Diabetes }}</p>
+                        <p><strong>Result:</strong> {{ assessment.label }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="card w-100">
+                    <div class="card-body text-center">
+                        <p>No records found</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

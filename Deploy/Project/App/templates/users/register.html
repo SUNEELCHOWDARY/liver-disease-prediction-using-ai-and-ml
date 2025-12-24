@@ -1,0 +1,154 @@
+<style>
+    body {
+        background-color: #045050;
+    }
+
+    .modal-container {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #cccccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Ensures rounded corners work correctly */
+    }
+
+    .modal-left {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal-right img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .modal-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .modal-desc {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #666;
+        text-align: center;
+    }
+
+    .alert {
+        margin-bottom: 20px;
+    }
+
+    .input-block {
+        margin-bottom: 15px;
+        width: 100%; /* Ensures input blocks span the full width */
+    }
+
+    input {
+        width: 100%; /* Ensures input fields span the full width */
+        max-width: 100%; /* Prevents exceeding parent width */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Includes padding and border in the element's width */
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%; /* Ensures the button spans the full width */
+        max-width: 300px; /* Controls the maximum width */
+        margin: 0 auto; /* Centers the button */
+        display: block; /* Ensures proper centering */
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .sign-up {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .sign-up a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .sign-up a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="modal-container">
+    <div class="modal-left">
+        
+        <h1 class="modal-title">Welcome!</h1>
+        <p class="modal-desc"> Welcome to guest Kindly Register Here!</p>
+
+        {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <label for="id_first_name">First Name</label>
+            <div class="input-block"><br>
+                {{ form.first_name }}
+            </div>
+            <label for="id_last_name">Last Name</label>
+            <div class="input-block"><br>
+                {{ form.last_name }}
+            </div>
+            <label for="id_username">Username</label>
+            <div class="input-block"><br>
+                {{ form.username }}
+            </div>
+            <label for="id_email">Email</label>
+            <div class="input-block"><br>
+                {{ form.email }}
+            </div>
+            <label for="id_password1">Password</label>
+            <div class="input-block"><br>
+                {{ form.password1 }}
+            </div>
+            <label for="id_password2">Confirm Password</label>
+            <div class="input-block"><br>
+                {{ form.password2 }}
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="sign-up">Not a member? <a href="{% url 'login' %}">Sign up</a></div>
+    </div>
+    <div class="modal-right">
+        <img src="https://img.freepik.com/premium-photo/woman-holding-hands-around-illustration-liver-turquoise-background-closeup_495423-48886.jpg" alt="Image Description">
+    </div>
+</div>
